@@ -210,7 +210,10 @@
     <script type="text/javascript">
     function loadFile(fileName)
     {
-        $('#page-wrapper').load(fileName);
+        $.ajax({url: fileName, success: function(result){
+            console.log(result);
+            $("#page-wrapper").html(result);
+        }});
     }
     loadFile('main.html');
     </script>
